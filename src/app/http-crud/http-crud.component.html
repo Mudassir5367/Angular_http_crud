@@ -1,0 +1,28 @@
+<form #form="ngForm" (ngSubmit)="submit(form.value)">
+<input type="number" name="id" [(ngModel)] = "allPostData.id"><br><br>
+<input type="text" name="title" [(ngModel)] = "allPostData.title"><br><br>
+<input type="text" name="body" [(ngModel)] = "allPostData.body"><br><br>
+<button (click)="submit">Submit</button><br><br>
+<form>
+
+    
+<div >
+  <table border="2px solid black">
+    <tr>
+            <th>id</th>
+            <th>Title</th>
+            <th>Body</th>
+            <th>Action</th>
+    </tr>
+   
+   <tr *ngFor="let data of allPostData; let i = index">
+    
+  
+    <td>{{ data?.id }}</td>
+    <td>{{ data?.title }}</td>
+    <td>{{ data?.body }}</td>
+    <td><button (click)="deletePost(data.id,i)">Delete</button></td>
+    <td><button (click)="edit()">Update</button></td>
+   </tr>
+  </table>
+</div>
